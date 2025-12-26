@@ -1,0 +1,22 @@
+COMMAND_LIST = [
+    "Exit",
+    "Open File Explorer",
+    "Search 'Python tutorials' on Google",
+    "Type 'Overseer AI' using keyboard",
+    "Set volume to 50%",
+    "Mute system volume",
+    "Open Command Prompt",
+    "Create a text file named 'log.txt'",
+    "List files in current directory",
+    "Get system information",
+    "Open Notepad and write 'Hello World'",
+    "Cancel shutdown",
+    "Shutdown the computer in 60 seconds",
+    "What is my IP address?",
+    "Open Calculator",
+    "Create a folder named 'Project' on Desktop",
+    "Take a screenshot",
+    "Center the mouse cursor",
+    "Open Youtube in Chrome",
+    "Open Google Chrome"
+]
