@@ -7,6 +7,7 @@ from prompt_toolkit.history import InMemoryHistory
 from prompt_toolkit.styles import Style as PromptStyle
 
 from prompts import SYSTEM_PROMPT, COMMAND_LIST
+from plugins import check_plugin, run_plugin
 
 init(autoreset=True)
 
@@ -46,8 +47,17 @@ def get_ai_model(api_key):
         return None
 
 def execute_task(model, user_query):
+    plugin_code = check_plugin(user_query)
+    if plugin_code:
+        print_system("Plugin Found! Executing...", Fore.CYAN)
+        if run_plugin(plugin_code):
+            print_system("Plugin Executed.", Fore.GREEN)
+        else:
+            print_system("Plugin Failed.", Fore.RED)
+        return
+    
     try:
-        print_system("Processing...", Fore.BLUE)
+        print_system("Processing with AI...", Fore.BLUE)
         response = model.generate_content(f"{SYSTEM_PROMPT}\n\nTask: {user_query}")
         code = response.text.replace("```python", "").replace("```", "").strip()
         
